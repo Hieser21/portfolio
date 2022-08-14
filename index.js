@@ -2,28 +2,33 @@ var express = require('express');
 var cors = require('cors');
 require('dotenv').config()
  var multer = require('multer');
+ var bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const upload = multer({ dest: './views/' })
 var app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(multer().array());
 const transporter = nodemailer.createTransport({
-    host: 'smtp.ethereal.email',
+    host: 'smtp.gmail.com',
     port: 587,
     auth: {
-        user: 'annabell75@ethereal.email',
-        pass: 'jKZtRk8UrEN8tqwNGE'
+        user: 'rarafat883@gmail.com',
+        pass: 'malevolentshrine22'
     }
 });
 app.use(cors());
 app.use('/views/assets', express.static(process.cwd() + '/views/assets'));
 
 app.get('/', function (req, res) {
-  res.sendFile(process.cwd() + '/views/index.html');
+  res.sendFile(process.cwd() + '/index.html');
 });
 
-app.post('/web/email', upload.none(), function (req, res) {
+app.post('/email', upload.none(), function (req, res) {
     var message = {
-        from: req.body.name + " " + req.body.email,
-        to: "rarafat883@gmail.com",
+        from:req.body.email,
+        to: "rarafat15@yahoo.com",
         subject: req.body.subject,
         text: req.body.message,
         html: req.body.message
@@ -39,7 +44,7 @@ app.post('/web/email', upload.none(), function (req, res) {
 });
 
 
-const port = process.env.PORT || 3000;
-app.listen(port, function () {
-  console.log('Your app is listening on port ' + port)
-});
+//const port = process.env.PORT || 3000;
+//app.listen(port, function () {
+ // console.log('Your app is listening on port ' + port)
+//});
