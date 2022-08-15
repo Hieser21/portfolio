@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
 app.use(express.static('public'))
 app.route("/").get(function (req, res) {
-    res.sendFile(process.cwd() + "/index.html");
+    res.sendFile(process.cwd() + "/public/contactUs.html");
   });
 
 app.post('/email',(req,response)=>{
@@ -53,7 +53,7 @@ const mailOpts = {
   html:output,
   attachments: [{
   filename: 'email.jpg',
-  path:__dirname + '/views/email.jpg',cid: 'email' //same cid value as in the html img src
+  path:__dirname + '/public/images/email.jpg',cid: 'email' //same cid value as in the html img src
   }]}
 smtpTrans.sendMail(mailOpts,(error,res)=>{
    if(error){
@@ -63,10 +63,11 @@ smtpTrans.sendMail(mailOpts,(error,res)=>{
     console.log("Message sent: " + res.message);
     response.status(200).send(200)
     }
-
+  //smtpTrans.close();
    })
 })
-const port = process.env.PORT || 3000
-const server = app.listen(port, function() {
-console.log("Your app is listenting on port 3000")
-})
+const port = process.env.PORT || 5000
+const server = app.listen(port,listening)
+function listening (){
+  console.log(`server running on ${port}`)
+}
