@@ -22,7 +22,7 @@ app.use(express.static('public'))
 app.route("/").get(function (req, res) {
     res.sendFile(process.cwd() + "/views/index.html");
   });
-
+app.use(express.static('views'))
 app.post('/email',(req,response)=>{
 const output=`
   <p>You have a new contact request</p>
