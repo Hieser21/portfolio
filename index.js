@@ -51,6 +51,7 @@ const mailOpts = {
   to:process.env.RECIPIENT,
   subject:'New message from Nodemailer-contact-form',
   html:output
+}
 smtpTrans.sendMail(mailOpts,(error,res)=>{
    if(error){
    console.log(error);
