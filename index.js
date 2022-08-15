@@ -53,7 +53,7 @@ const mailOpts = {
   html:output,
   attachments: [{
   filename: 'email.jpg',
-  path:__dirname + '/public/images/email.jpg',cid: 'email' //same cid value as in the html img src
+  path:__dirname + '/views/email.jpg',cid: 'email' //same cid value as in the html img src
   }]}
 smtpTrans.sendMail(mailOpts,(error,res)=>{
    if(error){
