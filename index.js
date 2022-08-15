@@ -50,11 +50,7 @@ const mailOpts = {
   from:process.env.GMAIL_USER,
   to:process.env.RECIPIENT,
   subject:'New message from Nodemailer-contact-form',
-  html:output,
-  attachments: [{
-  filename: 'email.jpg',
-  path:__dirname + '/views/email.jpg',cid: 'email' //same cid value as in the html img src
-  }]}
+  html:output
 smtpTrans.sendMail(mailOpts,(error,res)=>{
    if(error){
    console.log(error);
