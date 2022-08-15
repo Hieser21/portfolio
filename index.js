@@ -40,16 +40,7 @@ app.get('/', function (req, res) {
 });
 
 app.post('/email', upload.none(), function (req, res) {
- const output=`
-  <p>You have a new contact request</p>
-  <img class="email" src="cid:email" alt="email-image">
-  <h3>Contact details</h3>
-  <ul>
-  <li>FirstName: ${req.body.name}</li>
-  <li>Subject: ${req.body.subject}</li>
-  <li>Email: ${req.body.email}</li>
-  <li>Message: ${req.body.message}</li>
-  </ul>`   
+ const output="<p>You have a new contact request</p> <h3>Contact details</h3><ul><li>FirstName: ${req.body.name}</li><li>Subject: ${req.body.subject}</li><li>Email: ${req.body.email}</li><li>Message: ${req.body.message}</li> </ul>"
  
  const mailOpts = {
   from:process.env.GMAIL_USER,
