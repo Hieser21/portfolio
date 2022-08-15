@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
 app.use(express.static('public'))
 app.route("/").get(function (req, res) {
-    res.sendFile(process.cwd() + "/public/contactUs.html");
+    res.sendFile(process.cwd() + "/index.html");
   });
 
 app.post('/email',(req,response)=>{
