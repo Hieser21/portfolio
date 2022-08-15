@@ -10,17 +10,8 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.16.4",
-    "multer": "^1.4.5-lts.1",
     "nodemailer": "^6.7.8",
      "googleapis": "^67.0.0",
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/freeCodeCamp/boilerplate-project-filemetadata"
-  },
-  "keywords": [
-    "node",
-    "express"
-  ],
   "license": "MIT"
 }
