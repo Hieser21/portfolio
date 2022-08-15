@@ -1,23 +1,37 @@
-var express = require('express');
-var cors = require('cors');
-require('dotenv').config()
- var multer = require('multer');
- var bodyParser = require('body-parser');
-const nodemailer = require('nodemailer');
-const upload = multer({ dest: './views/' })
+const express = require('express')
+const bodyParser= require('body-parser')
+const nodemailer = require('nodemailer')
+const { google } = require('googleapis')
+const OAuth2 = google.auth.OAuth2
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(multer().array());
-const transporter = nodemailer.createTransport({
+
+const oauth2Client = new OAuth2(
+    process.env.Client_ID,
+    process.env.Client_Secret,
+    "https://developers.google.com/oauthplayground"
+    )
+oauth2Client.setCredentials({
+    refresh_token:process.env.Refresh_Token
+})
+
+const accessToken = oauth2Client.getAccessToken()
+
+const smtpTrans = nodemailer.createTransport({
     host: 'smtp.gmail.com',
-    port: 587,
-    auth: {
-        user: 'rarafat883@gmail.com',
-        pass: 'malevolentshrine22'
-    }
-});
+    port: 465,
+    secure: true,
+  auth:{
+  type:"OAuth2",
+  user:process.env.GMAIL_USER,
+  clientId:process.env.Client_ID,
+  clientSecret:process.env.Client_Secret,
+  refreshToken:process.env.Refresh_Token,
+  accessToken:accessToken
+  }})
+
 app.use(cors());
 app.use('/views/assets', express.static(process.cwd() + '/views/assets'));
 
@@ -26,25 +40,39 @@ app.get('/', function (req, res) {
 });
 
 app.post('/email', upload.none(), function (req, res) {
-    var message = {
-        from:req.body.email,
-        to: "rarafat15@yahoo.com",
-        subject: req.body.subject,
-        text: req.body.message,
-        html: req.body.message
-      };
-  
-      transporter.sendMail(message, function(err, data) {
-        if (err) {
-          console.log("Error " + err);
-        } else {
-          console.log("Email sent successfully");
-        }
-      })
-});
+ onst output=`
+  <p>You have a new contact request</p>
+  <img class="email" src="cid:email" alt="email-image">
+  <h3>Contact details</h3>
+  <ul>
+  <li>FirstName: ${req.body.name}</li>
+  <li>Subject: ${req.body.subject}</li>
+  <li>Email: ${req.body.email}</li>
+  <li>Message: ${req.body.message}</li>
+  </ul>`   
+ 
+ onst mailOpts = {
+  from:process.env.GMAIL_USER,
+  to:process.env.RECIPIENT,
+  subject:'New message from Nodemailer-contact-form',
+  html:output,
+  attachments: [{
+  filename: 'email.jpg',
+  path:__dirname + '/views/email.jpg',cid: 'email' //same cid value as in the html img src
+  }]}
+smtpTrans.sendMail(mailOpts,(error,res)=>{
+   if(error){
+   console.log(error);
+   }
+   else{
+    console.log("Message sent: " + res.message);
+    response.status(200).send(200)
+    }
 
-
-const port = process.env.PORT || 3000;
-app.listen(port, function () {
- console.log('Your app is listening on port ' + port)
-});
+   })
+})
+const port = process.env.PORT || 5000
+const server = app.listen(port,listening)
+function listening (){
+  console.log(`server running on ${port}`)
+}
