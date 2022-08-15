@@ -772,7 +772,7 @@ a:hover {
 }
 .service-box:hover .ico-circle {
   transition: all 500ms ease;
-  color: bisque;
+  color: white;
   background-color: #002d61;
   box-shadow: 0 0 0 10px #1b2d42;
 }
@@ -795,10 +795,10 @@ a:hover {
   text-transform: uppercase;
   text-align: center;
   padding: 0.4rem 0;
-  color: bisque;
+  color: white;
 }
 .service-box .s-description {
-  color: bisque;
+  color: white;
 }
 
 /*--------------------------------------------------------------
@@ -862,7 +862,7 @@ a:hover {
   padding: 2rem 3% 1rem 4%;
 }
 .work-content .w-more {
-  color: bisque;
+  color: white;
   font-size: 0.8rem;
 }
 .work-content .w-more .w-ctegory {
