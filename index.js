@@ -40,7 +40,7 @@ app.get('/', function (req, res) {
 });
 
 app.post('/email', upload.none(), function (req, res) {
- onst output=`
+ const output=`
   <p>You have a new contact request</p>
   <img class="email" src="cid:email" alt="email-image">
   <h3>Contact details</h3>
@@ -51,7 +51,7 @@ app.post('/email', upload.none(), function (req, res) {
   <li>Message: ${req.body.message}</li>
   </ul>`   
  
- onst mailOpts = {
+ const mailOpts = {
   from:process.env.GMAIL_USER,
   to:process.env.RECIPIENT,
   subject:'New message from Nodemailer-contact-form',
