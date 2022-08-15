@@ -68,5 +68,5 @@ smtpTrans.sendMail(mailOpts,(error,res)=>{
 })
 const port = process.env.PORT || 3000
 const server = app.listen(port, function() {
-console.log("Your app is listenting on port 3000
+console.log("Your app is listenting on port 3000")
 })
