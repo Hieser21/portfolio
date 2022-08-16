@@ -25,7 +25,12 @@ app.route("/").get(function (req, res) {
 app.use(express.static('views'))
 app.post('/email',(req,response)=>{
 const output=`
+<<<<<<< HEAD
 <img class="email" src="https://images.pexels.com/photos/6985001/pexels-photo-6985001.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" style="width: 100%; height: 40%" alt="email-image">
+=======
+
+  <img class="email" src="https://images.pexels.com/photos/6985001/pexels-photo-6985001.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="email-image">
+>>>>>>> parent of 212a517 (Update index.js)
   <h3>Contact details</h3>
   <ul>
   <li>Name: ${req.body.name}</li>
