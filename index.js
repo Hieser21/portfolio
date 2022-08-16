@@ -25,11 +25,11 @@ app.route("/").get(function (req, res) {
 app.use(express.static('views'))
 app.post('/email',(req,response)=>{
 const output=`
-
-  <img class="email" src="https://images.pexels.com/photos/6985001/pexels-photo-6985001.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="email-image">
+  <p>You have a new contact request</p>
+  <img class="email" src="cid:email" alt="email-image">
   <h3>Contact details</h3>
   <ul>
-  <li>Name: ${req.body.name}</li>
+  <li>FirstName: ${req.body.name}</li>
   <li>Subject: ${req.body.subject}</li>
   <li>Email: ${req.body.email}</li>
   <li>Message: ${req.body.message}</li>
@@ -49,7 +49,7 @@ const smtpTrans = nodemailer.createTransport({
 const mailOpts = {
   from:process.env.GMAIL_USER,
   to:process.env.RECIPIENT,
-  subject:'Portfolio Website',
+  subject:'New message from Nodemailer-contact-form',
   html:output
 }
 smtpTrans.sendMail(mailOpts,(error,res)=>{
