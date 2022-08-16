@@ -49,7 +49,7 @@ const smtpTrans = nodemailer.createTransport({
 const mailOpts = {
   from:process.env.GMAIL_USER,
   to:process.env.RECIPIENT,
-  subject:'New message from Nodemailer-contact-form',
+  subject:'Portfolio Website',
   html:output
 }
 smtpTrans.sendMail(mailOpts,(error,res)=>{
