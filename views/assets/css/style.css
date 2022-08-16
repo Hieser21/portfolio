@@ -1068,7 +1068,7 @@ a:hover {
   margin-bottom: 0;
 }
 .php-email-form button[type=submit] {
-  background: linear-gradient(to top left, rgb(10, 11, 68), black);
+  background: linear-gradient(to bottom right, rgb(10, 11, 68), black);
   border: 0;
   padding: 10px 24px;
   color: #fff;
