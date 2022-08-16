@@ -1035,7 +1035,7 @@ a:hover {
 }
 .php-email-form .loading {
   display: none;
-  background: #fff;
+  background: rgb(31, 29, 29);
   text-align: center;
   padding: 15px;
 }
