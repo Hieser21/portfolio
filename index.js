@@ -58,7 +58,7 @@ smtpTrans.sendMail(mailOpts,(error,res)=>{
    }
    else{
     console.log("Message sent: " + res.message);
-    response.status(200).send("alert("Your email has been received!"); window.location.href = "https:/\/arafatrahaman.cyclic.app/"; ");
+    response.status(200).send('alert("Your email has been received!") window.location.href = "https:/\/arafatrahaman.cyclic.app/"');
     }
   //smtpTrans.close();
    })
