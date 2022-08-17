@@ -751,6 +751,13 @@
   $('.php-email-form').on('submit', function(event) {
   event.preventDefault()
     
+  $.ajax({
+    url: '/email',
+    type:'POST',
+    data: $form.serialize()
+  }).done(response => {
+    console.log(response)
+ 
     $('.loading').addClass('d-block')
     setTimeout(function() {
     $('.loading').removeClass('d-block')
