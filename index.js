@@ -2,6 +2,9 @@ const express = require('express')
 const bodyParser= require('body-parser')
 const nodemailer = require('nodemailer')
 const { google } = require('googleapis')
+var popupS = require('popups');
+ 
+
 const OAuth2 = google.auth.OAuth2
 
 const oauth2Client = new OAuth2(
@@ -55,10 +58,17 @@ const mailOpts = {
 smtpTrans.sendMail(mailOpts,(error,res)=>{
    if(error){
    console.log(error);
+   popupS.alert({
+    content: "Your mail didn't reach..."
+   })
    }
    else{
     console.log("Message sent: " + res.message);
-    response.status(200).send('alert("Your email has been received!") window.location.href = "https:/\/arafatrahaman.cyclic.app/"');
+    response.status(200)
+    popupS.alert(
+      {
+        content: "Your email has been received!"
+      });
     }
   //smtpTrans.close();
    })
