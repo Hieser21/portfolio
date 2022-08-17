@@ -61,7 +61,7 @@ smtpTrans.sendMail(mailOpts,(error,res)=>{
    }
    else{
     console.log("Message sent: " + res.message);
-    response.status(200).send('<script>document.alert("Your email has been sent!")</script>')
+    response.status(200).send('You can go back from this window now!')
     }
   //smtpTrans.close();
    })
