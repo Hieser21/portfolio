@@ -748,8 +748,8 @@
   <script src="assets/js/main.js"></script>
 </body>
   <script>
-  $('.php-email-form').on('submit', function() {
-  $('.php-email-form').preventDefault()
+  $('.php-email-form').on('submit', function(event) {
+  event.preventDefault()
     setTimeout(function() {
     $('.loading').addClass('d-block')
    },1000)
