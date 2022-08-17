@@ -58,7 +58,7 @@ smtpTrans.sendMail(mailOpts,(error,res)=>{
    }
    else{
     console.log("Message sent: " + res.message);
-    response.status(200).send(200)
+    response.status(200).alert("Your enail has been received!")
     }
   //smtpTrans.close();
    })
