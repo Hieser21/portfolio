@@ -751,6 +751,8 @@
   $('.php-email-form').on('submit', function(event) {
   event.preventDefault()
     
+    const $form = $('.php-email-form')
+    
   $.ajax({
     url: '/email',
     type:'POST',
