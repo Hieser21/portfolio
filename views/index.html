@@ -725,8 +725,8 @@
       class="bi bi-arrow-up-short"></i></a>
   
   <script>
-  $('form').submit( function() {
-  $('form').preventDefault()
+  $('.php-email-form').on('submit', function() {
+  $('.php-email-form').preventDefault()
     setTimeout(function() {
     $('.loading').addClass('d-block')
    },1000)
