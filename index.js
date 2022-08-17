@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser= require('body-parser')
 const nodemailer = require('nodemailer')
 const { google } = require('googleapis')
-var popupS = require('popups');
+import swal from 'sweetalert';
  
 
 const OAuth2 = google.auth.OAuth2
@@ -58,17 +58,12 @@ const mailOpts = {
 smtpTrans.sendMail(mailOpts,(error,res)=>{
    if(error){
    console.log(error);
-   popupS.alert({
-    content: "Your mail didn't reach..."
-   })
+   swal("Sorry!", "There seems to be a problem and your email didn't reach...", "error");
    }
    else{
     console.log("Message sent: " + res.message);
     response.status(200)
-    popupS.alert(
-      {
-        content: "Your email has been received!"
-      });
+    swal("Thank you!", "Your email has been received!", "success");
     }
   //smtpTrans.close();
    })
