@@ -750,9 +750,17 @@
   <script>
   $('.php-email-form').on('submit', function(event) {
   event.preventDefault()
-    setTimeout(function() {
+    
     $('.loading').addClass('d-block')
-   },1000)
+    setTimeout(function() {
+    $('.loading').removeClass('d-block')
+   }, 1000)
+   $('.php-email-form').on('error', function() {
+   $('.loading').removeClass('d-block')
+     $('.error-message').addClass('d-block')
+   })
+    $('.sent-message').addClass('d-block')
+    
   })
     
   </script>
