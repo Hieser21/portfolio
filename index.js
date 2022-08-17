@@ -63,7 +63,7 @@ smtpTrans.sendMail(mailOpts,(error,res)=>{
   //smtpTrans.close();
    })
 })
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 8080
 const server = app.listen(port,listening)
 function listening (){
   console.log(`server running on ${port}`)
