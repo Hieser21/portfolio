@@ -765,11 +765,19 @@
    $('.php-email-form').on('error', function() {
    $('.loading').removeClass('d-block')
      $('.error-message').addClass('d-block')
+     
+     setInterval(function() {
+    $('.error-message').removeClass('d-block')
+    },5000)
    })
     
     setInterval(function() {
     $('.sent-message').addClass('d-block')
     },1000)
+    
+    setInterval(function() {
+    $('.sent-message').removeClass('d-block')
+    },5000)
   })
     
   </script>
