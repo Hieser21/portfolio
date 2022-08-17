@@ -759,8 +759,10 @@
    $('.loading').removeClass('d-block')
      $('.error-message').addClass('d-block')
    })
-    $('.sent-message').addClass('d-block')
     
+    setInterval(function() {
+    $('.sent-message').addClass('d-block')
+    },1000)
   })
     
   </script>
