@@ -766,14 +766,16 @@
    $('.loading').removeClass('d-block')
      $('.error-message').addClass('d-block')
      
-     setInterval(function() {
+     setTimeout(function() {
     $('.error-message').removeClass('d-block')
     },5000)
    })
-    
-    $('.sent-message').delay(1000).addClass('d-block')
-    
-    $('.sent-message').delay(5000).removeClass('d-block')
+      setTimeout(function() {
+    $('.sent-message').addClass('d-block')
+     },1000)
+         setTimeout(function() { 
+    $('.sent-message').removeClass('d-block')
+   },5000)      
   })
     
   </script>
