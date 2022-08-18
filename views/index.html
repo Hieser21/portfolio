@@ -771,13 +771,9 @@
     },5000)
    })
     
-    setInterval(function() {
-    $('.sent-message').addClass('d-block')
-    },1000)
+    $('.sent-message').delay(1000).addClass('d-block')
     
-    setInterval(function() {
-    $('.sent-message').removeClass('d-block')
-    },5000)
+    $('.sent-message').delay(5000).removeClass('d-block')
   })
     
   </script>
