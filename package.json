@@ -1,7 +1,7 @@
 {
-  "name": "contact-form",
+  "name": "Portfolio",
   "version": "1.0.0",
-  "description": "noemailer-contact-form",
+  "description": "Portfolio",
   "main": "index.js",
   "dependencies": {
     "body-parser": "^1.19.0",
