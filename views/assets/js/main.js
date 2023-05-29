@@ -215,9 +215,11 @@
    * Preloader
    */
   let preloader = select('#preloader');
+  let span = select('#span');
   if (preloader) {
     window.addEventListener('load', () => {
       preloader.remove()
+      span.remove()
     });
   }
 
