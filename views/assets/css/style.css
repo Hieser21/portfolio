@@ -382,11 +382,11 @@ a:hover {
 @keyframes loader {
   0% {
     transform: scaleY(0.1);
-    background: ;
+    background: rgb(10, 11, 68);
   }
   50% {
     transform: scaleY(1);
-    background: yellowgreen;
+    background: rgb(82, 9, 141);
   }
   100% {
     transform: scaleY(0.1);
